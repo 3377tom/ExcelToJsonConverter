@@ -1,0 +1,6 @@
+Type	Question	Option A	Option B	Option C	Option D	Option E	Option F		Answer
+单选题	Java的创始人是谁？	詹姆斯·高斯林	比尔·盖茨	史蒂夫·乔布斯	马克·扎克伯格				A
+多选题	以下哪些是Java的基本数据类型？	int	String	char	byte	Object				ACD
+判断题	Java是一种编译型语言	正确	错误						A
+简答题	什么是面向对象编程？									一种编程范式，以对象为中心，强调封装、继承和多态
+单选题	以下哪个不是Java的关键字？	public	private	protected	main					D

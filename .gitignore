@@ -1,0 +1,26 @@
+# Maven
+/target/
+/.mvn/
+/mvnw
+/mvnw.cmd
+
+# IDE
+/.idea/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# JARs
+*.jar
+/lib/*.jar
