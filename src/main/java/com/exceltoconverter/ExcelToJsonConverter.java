@@ -63,7 +63,7 @@ public class ExcelToJsonConverter {
         
         // 遍历每一行（跳过标题行）
         for (int rowIndex = 1; rowIndex < totalRows; rowIndex++) {
-            Row row = worksheet.getRows().get(rowIndex);
+            Row row = worksheet.getCells().getRows().get(rowIndex);
             
             // 解析题目信息
             JSONObject questionObj = parseQuestionRow(row);
@@ -90,11 +90,11 @@ public class ExcelToJsonConverter {
     private static JSONObject parseQuestionRow(Row row) {
         try {
             // 第一列：题型
-            Cell typeCell = row.getCells().get(0);
+            Cell typeCell = row.getCell(0);
             String type = typeCell.getStringValue().trim();
             
             // 第二列：题干
-            Cell questionCell = row.getCells().get(1);
+            Cell questionCell = row.getCell(1);
             String question = questionCell.getStringValue().trim();
             
             if (question.isEmpty()) {
@@ -102,12 +102,12 @@ public class ExcelToJsonConverter {
             }
             
             // 第十列：答案
-            Cell answerCell = row.getCells().get(9);
+            Cell answerCell = row.getCell(9);
             String answer = answerCell.getStringValue().trim();
             
             // 创建题目对象
             JSONObject questionObj = new JSONObject();
-            questionObj.put("id", System.currentTimeMillis() + row.getRowIndex()); // 临时ID
+            questionObj.put("id", System.currentTimeMillis() + row.getIndex()); // 临时ID
             
             // 设置题型
             String questionType = "";
@@ -138,8 +138,8 @@ public class ExcelToJsonConverter {
             List<String> options = new ArrayList<>();
             if (!questionType.equals("SHORT")) { // 简答题没有选项
                 for (int i = 2; i <= 8; i++) { // 第三列到第九列对应索引2-8
-                    Cell optionCell = row.getCells().get(i);
-                    String option = optionCell.getStringValue().trim();
+                        Cell optionCell = row.getCell(i);
+                        String option = optionCell.getStringValue().trim();
                     if (!option.isEmpty()) {
                         options.add(option);
                     }
@@ -173,7 +173,7 @@ public class ExcelToJsonConverter {
             
             return questionObj;
         } catch (Exception e) {
-            System.out.println("Error parsing row " + row.getRowIndex() + ": " + e.getMessage());
+            System.out.println("Error parsing row " + row.getIndex() + ": " + e.getMessage());
             return null;
         }
     }

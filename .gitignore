@@ -21,6 +21,6 @@ Thumbs.db
 *.log
 logs/
 
-# JARs
+# JARs - except for lib directory which contains required dependencies
 *.jar
-/lib/*.jar
+!/lib/*.jar
