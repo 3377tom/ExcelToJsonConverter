@@ -15,20 +15,22 @@
     </properties>
 
     <dependencies>
-        <!-- Aspose Cells for Java -->
+        <!-- Aspose Cells for Java - Local JAR -->
         <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-cells</artifactId>
             <version>20.12</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/aspose-cells-20.12.jar</systemPath>
         </dependency>
 
-        <!-- JavaAssist -->
+        <!-- JavaAssist - Local JAR -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.28.0-GA</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javassist-3.28.0-GA.jar</systemPath>
         </dependency>
 
         <!-- JSON Processing -->
@@ -70,6 +72,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <includeSystemScope>true</includeSystemScope>
                 </configuration>
                 <executions>
                     <execution>
