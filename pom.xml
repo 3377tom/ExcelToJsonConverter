@@ -57,6 +57,13 @@
                         </goals>
                         <configuration>
                             <finalName>excel-to-json-converter-1.0-SNAPSHOT-jar-with-dependencies</finalName>
+                            <artifactSet>
+                                <includes>
+                                    <include>com.aspose:aspose-cells</include>
+                                    <include>org.javassist:javassist</include>
+                                    <include>org.json:json</include>
+                                </includes>
+                            </artifactSet>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>com.exceltoconverter.ExcelToJsonConverter</mainClass>
@@ -72,24 +79,6 @@
                                     </excludes>
                                 </filter>
                             </filters>
-                            <!-- 明确包含system scope依赖 -->
-                            <dependencySets>
-                                <dependencySet>
-                                    <includes>
-                                        <include>*:*</include>
-                                    </includes>
-                                    <scope>runtime</scope>
-                                    <unpack>true</unpack>
-                                </dependencySet>
-                                <dependencySet>
-                                    <includes>
-                                        <include>com.aspose:aspose-cells</include>
-                                        <include>org.javassist:javassist</include>
-                                    </includes>
-                                    <scope>system</scope>
-                                    <unpack>true</unpack>
-                                </dependencySet>
-                            </dependencySets>
                         </configuration>
                     </execution>
                 </executions>
