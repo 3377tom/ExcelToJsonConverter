@@ -1,6 +1,10 @@
-# Excel To JSON Converter
+# Excel to JSON Converter
 
 A Java application to convert Excel files to JSON format using Aspose Cells 20.12.
+
+## 更新说明
+- 2025-12-10: 添加GitHub Actions自动编译功能
+- 使用JDK 17编译环境
 
 ## Features
 
