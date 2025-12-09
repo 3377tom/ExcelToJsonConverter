@@ -90,11 +90,11 @@ public class ExcelToJsonConverter {
     private static JSONObject parseQuestionRow(Row row) {
         try {
             // 第一列：题型
-            Cell typeCell = row.getCell(0);
+            Cell typeCell = row.getCellByIndex(0);
             String type = typeCell.getStringValue().trim();
             
             // 第二列：题干
-            Cell questionCell = row.getCell(1);
+            Cell questionCell = row.getCellByIndex(1);
             String question = questionCell.getStringValue().trim();
             
             if (question.isEmpty()) {
@@ -102,7 +102,7 @@ public class ExcelToJsonConverter {
             }
             
             // 第十列：答案
-            Cell answerCell = row.getCell(9);
+            Cell answerCell = row.getCellByIndex(9);
             String answer = answerCell.getStringValue().trim();
             
             // 创建题目对象
@@ -138,12 +138,12 @@ public class ExcelToJsonConverter {
             List<String> options = new ArrayList<>();
             if (!questionType.equals("SHORT")) { // 简答题没有选项
                 for (int i = 2; i <= 8; i++) { // 第三列到第九列对应索引2-8
-                        Cell optionCell = row.getCell(i);
+                        Cell optionCell = row.getCellByIndex(i);
                         String option = optionCell.getStringValue().trim();
-                    if (!option.isEmpty()) {
-                        options.add(option);
+                        if (!option.isEmpty()) {
+                            options.add(option);
+                        }
                     }
-                }
                 
                 // 判断题特殊处理：如果没有选项，添加默认选项
                 if (questionType.equals("TRUE_FALSE") && options.isEmpty()) {
